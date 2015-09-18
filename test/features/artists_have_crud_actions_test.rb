@@ -3,7 +3,7 @@ require 'test_helper'
 feature 'Artists have crud actions' do
   scenario 'create artist' do
     # Given a new artist form
-    visit '/'
+    visit artists_path
     click_on 'New Artist'
     # When I fill it out and submit
     fill_in 'Name', with: 'Allen Stone'
@@ -17,7 +17,7 @@ feature 'Artists have crud actions' do
 
   scenario "update artist" do
     # Given an edit artist form
-    visit '/'
+    visit artists_path
     click_on 'Edit'
     # When I fill it out and submit
     fill_in 'Genre', with: 'Soul/Pop'
@@ -29,7 +29,7 @@ feature 'Artists have crud actions' do
 
   scenario "delete artist" do
     # Given an existing artist
-    visit '/'
+    visit artists_path
     # When I click delete
     click_on 'Destroy'
     # Then the artist is deleted and I see a message
@@ -57,7 +57,6 @@ feature 'Artists have crud actions' do
     fill_in 'Draw', with: 'lots of people'
     click_on 'Update Artist'
     # Then the artist isnt updated and I see a message
-    save_and_open_page
     page.must_have_content 'Draw is not a number'
     page.wont_have_content 'lots of people'
   end
