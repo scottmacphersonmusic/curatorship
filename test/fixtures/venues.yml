@@ -1,0 +1,4 @@
+neumos:
+  name: 'Neumos'
+  capacity: 700
+  all_ages: false
