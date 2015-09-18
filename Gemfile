@@ -14,8 +14,9 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug'
-  gem 'pry-rails', '0.3.4'
+  gem 'launchy'
   gem 'minitest-rails-capybara', '2.1.1'
+  gem 'pry-rails', '0.3.4'
 end
 
 group :development do
