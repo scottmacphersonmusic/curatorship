@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150918074913) do
+ActiveRecord::Schema.define(version: 20150918061301) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
@@ -20,17 +20,6 @@ ActiveRecord::Schema.define(version: 20150918074913) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "curators", force: :cascade do |t|
-    t.datetime "event_date"
-    t.integer  "artist_id"
-    t.integer  "venue_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "curators", ["artist_id"], name: "index_curators_on_artist_id"
-  add_index "curators", ["venue_id"], name: "index_curators_on_venue_id"
 
   create_table "venues", force: :cascade do |t|
     t.string   "name"

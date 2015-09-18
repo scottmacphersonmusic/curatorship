@@ -1,6 +1,4 @@
 class Artist < ActiveRecord::Base
-  attr_accessible :name, :genre, :draw
-
   has_many :curators
   has_many :venues, through: :curators
 
