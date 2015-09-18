@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :artists
-  resources :venues
+  resources :artists do
+    resources :venues
+    resources :curatorships
+  end
   root 'artists#index'
 end
