@@ -1,8 +1,7 @@
 class ConcertsController < ApplicationController
-  before_action :set_concert, only: [:show, :edit, :update]
+  before_action :set_concert, only: [:show, :edit, :update, :destroy]
   before_action :set_artists, only: [:new, :edit]
   before_action :set_venues, only: [:new, :edit]
-
 
   def index
     @concerts = Concert.all
@@ -40,6 +39,11 @@ class ConcertsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @concert.destroy
+    redirect_to concerts_url, notice: "Concert was successfully destroyed :("
   end
 
   private

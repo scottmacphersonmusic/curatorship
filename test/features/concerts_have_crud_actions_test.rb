@@ -46,4 +46,14 @@ feature 'Concerts have crud actions' do
     page.must_have_content 'Concert was successfully udpated.'
     page.must_have_content '2017'
   end
+
+  scenario "destroy concert" do
+    # Given an existing concerts show page
+    visit concert_path(concerts(:one))
+    # When I click 'Destroy'
+    click_on 'Destroy'
+    # Then it should be destroyed
+    page.must_have_content 'Concert was successfully destroyed :('
+    page.wont_have_content 'Neumos'
+  end
 end
