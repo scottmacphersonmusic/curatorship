@@ -31,8 +31,19 @@ feature 'Concerts have crud actions' do
     select('8 PM', from: 'concert_concert_date_4i')
     select('30', from: 'concert_concert_date_5i')
     click_on 'Create Concert'
-    # Then a curatorship should be created
+    # Then a concert should be created
     page.must_have_content 'Concert was successfully created.'
     page.must_have_content 'Polyrhythmics'
+  end
+
+  scenario "update concert" do
+    # Given an edit concert form
+    visit edit_concert_path(concerts(:one))
+    # When I edit and submit it
+    select('2017', from: 'concert_concert_date_1i')
+    click_on 'Update Concert'
+    # Then it should be edited
+    page.must_have_content 'Concert was successfully udpated.'
+    page.must_have_content '2017'
   end
 end

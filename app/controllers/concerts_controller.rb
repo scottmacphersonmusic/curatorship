@@ -1,18 +1,20 @@
 class ConcertsController < ApplicationController
+  before_action :set_concert, only: [:show, :edit, :update]
+  before_action :set_artists, only: [:new, :edit]
+  before_action :set_venues, only: [:new, :edit]
+
+
   def index
     @concerts = Concert.all
   end
 
   def show
-    @concert = Concert.find(params[:id])
     @artist = @concert.artist
     @venue = @concert.venue
   end
 
   def new
     @concert = Concert.new
-    @artists = Artist.all.uniq
-    @venues = Venue.all.uniq
     @start = Time.now
     @button_text = 'Create Concert'
   end
@@ -28,11 +30,33 @@ class ConcertsController < ApplicationController
   end
 
   def edit
+    @start = @concert.concert_date
+    @button_text = 'Update Concert'
+  end
+
+  def update
+    if @concert.update(concert_params)
+      redirect_to @concert, notice: "Concert was successfully udpated."
+    else
+      render :edit
+    end
   end
 
   private
 
   def concert_params
     params.require(:concert).permit(:artist_id, :venue_id, :concert_date)
+  end
+
+  def set_concert
+    @concert = Concert.find(params[:id])
+  end
+
+  def set_artists
+    @artists = Artist.all
+  end
+
+  def set_venues
+    @venues = Venue.all
   end
 end
