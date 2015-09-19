@@ -52,7 +52,7 @@ feature 'Artists have crud actions' do
 
   scenario "update invalid artist" do
     # Given an edit artist form
-    visit edit_artist_path(artists(:potter))
+    visit edit_artist_path(artists(:poly))
     # When I submit invalid artist data
     fill_in 'Draw', with: 'lots of people'
     click_on 'Update Artist'
