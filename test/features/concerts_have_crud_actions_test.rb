@@ -18,17 +18,21 @@ feature 'Concerts have crud actions' do
     page.must_have_content 'Artist Draw'
   end
 
-  # scenario "create concert" do
-  #   # Given a new concert form
-  #   visit '/'
-  #   click_on 'New Concert'
-  #   # When I fill it out and submit it
-  #   select('Polyrhythmics', :from => 'Artists')
-  #   select('Neumos', :from => 'Venues')
-  #   # select(datetime)
-  #   click_on 'Create Concert'
-  #   # Then a curatorship should be created
-  #   page.must_have_content 'Curatorship was successfully created.'
-  #   page.must_have_content 'Polyrhythmics'
-  # end
+  scenario "create concert" do
+    # Given a new concert form
+    visit '/'
+    click_on 'New Concert'
+    # When I fill it out and submit it
+    select('Polyrhythmics', from: 'concert_artist_id')
+    select('Neumos', from: 'concert_venue_id')
+    select('2016', from: 'concert_concert_date_1i')
+    select('May', from: 'concert_concert_date_2i')
+    select('15', from: 'concert_concert_date_3i')
+    select('8 PM', from: 'concert_concert_date_4i')
+    select('30', from: 'concert_concert_date_5i')
+    click_on 'Create Concert'
+    # Then a curatorship should be created
+    page.must_have_content 'Concert was successfully created.'
+    page.must_have_content 'Polyrhythmics'
+  end
 end
