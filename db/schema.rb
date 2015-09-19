@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(version: 20150918213723) do
   end
 
   create_table "concerts", force: :cascade do |t|
-    t.datetime "event_date"
+    t.datetime "concert_date"
     t.integer  "artist_id"
     t.integer  "venue_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   add_index "concerts", ["artist_id"], name: "index_concerts_on_artist_id"

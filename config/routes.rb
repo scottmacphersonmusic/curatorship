@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :events
+  resources :concerts
   resources :artists
   resources :venues
-  root 'artists#index'
+  root 'concerts#index'
 end
