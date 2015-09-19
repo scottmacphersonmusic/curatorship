@@ -1,6 +1,12 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Venues</h1>
+
+<div>
+  <h4><%= link_to 'New Venue', new_venue_path %></h4>
+  <%= link_to 'Concerts', concerts_path %> |
+  <%= link_to 'Artists', artists_path %>
+</div>
+
+<hr/>
 
 <table>
   <thead>
@@ -15,10 +21,9 @@
   <tbody>
     <% @venues.each do |venue| %>
       <tr>
-        <td><%= venue.name %></td>
+        <td><%= link_to venue.name, venue %></td>
         <td><%= venue.capacity %></td>
         <td><%= venue.all_ages %></td>
-        <td><%= link_to 'Show', venue %></td>
         <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
         <td><%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -27,5 +32,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Venue', new_venue_path %>

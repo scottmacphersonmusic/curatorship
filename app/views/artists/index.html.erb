@@ -1,6 +1,9 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Artists</h1>
+<h4><%= link_to 'New Artist', new_artist_path %></h4>
+<%= link_to 'Concerts', concerts_path %>
+<%= link_to 'Venues', venues_path %>
+
+<hr/>
 
 <table>
   <thead>
@@ -15,17 +18,13 @@
   <tbody>
     <% @artists.each do |artist| %>
       <tr>
-        <td><%= artist.name %></td>
+        <td><%= link_to artist.name, artist %></td>
         <td><%= artist.genre %></td>
         <td><%= artist.draw %></td>
-        <td><%= link_to 'Show', artist %></td>
         <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-        <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', artist, method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Artist', new_artist_path %>

@@ -18,7 +18,8 @@ class ArtistsController < ApplicationController
   def create
     @artist = Artist.new(artist_params)
     if @artist.save
-      redirect_to @artist, notice: 'Artist was successfully created.'
+      flash[:notice] = 'Artist was successfully created.'
+      redirect_to @artist
     else
       render :new
     end
@@ -26,7 +27,8 @@ class ArtistsController < ApplicationController
 
   def update
     if @artist.update(artist_params)
-      redirect_to @artist, notice: 'Artist was successfully updated.'
+      flash[:notice] = 'Artist was successfully updated.'
+      redirect_to @artist
     else
       render :edit
     end

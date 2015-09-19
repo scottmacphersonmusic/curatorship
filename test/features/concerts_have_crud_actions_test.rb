@@ -56,4 +56,6 @@ feature 'Concerts have crud actions' do
     page.must_have_content 'Concert was successfully destroyed :('
     page.wont_have_content 'Neumos'
   end
+
+  # There are no 'unhappy' paths to test because only valid input is available
 end
