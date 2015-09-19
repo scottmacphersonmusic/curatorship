@@ -1,0 +1,21 @@
+<div>
+  <%= form_for @concert do |f| %>
+
+    <h3>Select Artist</h3>
+    <%= f.select('artist_id', options_for_select(@artists.map { |a|
+        [a.name, a.id] })) %>
+
+    <h3>Select Venue</h3>
+    <%= f.select('venue_id', options_for_select(@venues.map { |v|
+        [v.name, v.id] }))%>
+
+    <h3>Select Date</h3>
+    <%= f.datetime_select 'concert_date', ampm: true,
+        start_year: @start.year, default: @start + 1.day %>
+
+    <br/><br/>
+
+    <%= f.submit @button_text, method: :post %>
+
+  <% end %>
+</div>

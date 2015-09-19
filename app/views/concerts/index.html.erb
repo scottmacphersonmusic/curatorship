@@ -1,0 +1,24 @@
+<div>
+  <%= link_to "New Concert", new_concert_path %> |
+  <%= link_to "New Artist", new_artist_path %> |
+  <%= link_to "New Venue", new_venue_path %>
+</div><br/>
+
+<h1>Concerts</h1>
+
+<ul>
+  <% @concerts.each do |concert| %>
+    <ul>
+      <li><strong>Artist:</strong> <%= concert.artist.name %></li>
+      <li><strong>Venue:</strong> <%= concert.venue.name %></li>
+      <li><strong>Date:</strong> <%= concert.concert_date %></li>
+    </ul>
+    <div>
+      <%= link_to "Show", concert %> |
+      <%= link_to "Edit", edit_concert_path(concert) %> |
+      <%= link_to "Destroy", concert, method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+    </div>
+    <hr/>
+  <% end %>
+</ul>

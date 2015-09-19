@@ -1,0 +1,4 @@
+one:
+  concert_date: <%= Time.now + 10.days %>
+  artist: poly
+  venue: neumos

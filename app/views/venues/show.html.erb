@@ -1,0 +1,21 @@
+<p>
+  <strong>Name:</strong>
+  <%= @venue.name %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @venue.capacity %>
+</p>
+
+<p>
+  <strong>All ages:</strong>
+  <%= @venue.all_ages %>
+</p>
+
+<div>
+<%= link_to 'Back', venues_path %> |
+<%= link_to 'Edit', edit_venue_path(@venue) %> |
+<%= link_to 'Destroy', @venue, method: :destroy,
+    data: { confirm: 'Are you sure?' } %>
+</div>
