@@ -35,7 +35,7 @@ class ConcertsController < ApplicationController
 
   def update
     if @concert.update(concert_params)
-      flash.now[:notice] = "Concert was successfully udpated."
+      flash[:notice] = "Concert was successfully udpated."
       redirect_to @concert
     else
       render :edit
