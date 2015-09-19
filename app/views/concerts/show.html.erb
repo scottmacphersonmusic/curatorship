@@ -1,2 +1,18 @@
-<h1>Concerts#show</h1>
-<p>Find me in app/views/concerts/show.html.erb</p>
+<h1>Concert</h1>
+
+<div>
+  <%= link_to "Back", concerts_path %> |
+  <%= link_to "Edit", edit_concert_path(@concert) %> |
+  <%= link_to "Destroy", @concert, method: :delete,
+      data: { confirm: 'Are you sure?' } %>
+</div>
+
+<ul>
+  <li>Artist: <%= @artist.name %></li>
+  <li>Venue: <%= @venue.name %></li>
+  <li>When: <%= @concert.concert_date %></li>
+  <li>Genre: <%= @artist.genre %></li>
+  <li>Artist Draw: <%= @artist.draw %></li>
+  <li>Venue Capacity: <%= @venue.capacity %></li>
+  <li>All Ages: <%= @venue.all_ages ? 'Yes' : 'No' %></li>
+</ul>

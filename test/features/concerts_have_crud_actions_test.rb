@@ -1,13 +1,21 @@
 require 'test_helper'
 
 feature 'Concerts have crud actions' do
-
   scenario 'concert index' do
     # When I visit the concert index
     visit '/'
     # Then I can see a listing of all the concerts
     page.must_have_content 'Polyrhythmics'
     page.must_have_content 'Neumos'
+  end
+
+  scenario 'show concert' do
+    # When I visit a concert show page
+    visit concert_path(concerts(:one))
+    # Then I can see info about that concert
+    page.must_have_content 'Polyrhythmics'
+    page.must_have_content 'All Ages: No'
+    page.must_have_content 'Artist Draw'
   end
 
   # scenario "create concert" do

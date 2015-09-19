@@ -9,11 +9,16 @@
 <ul>
   <% @concerts.each do |concert| %>
     <ul>
-      <li>Artist: <%= concert.artist.name %></li>
-      <li>Venue: <%= concert.venue.name %></li>
-      <li>All Ages: <%= concert.venue.all_ages ? 'Yes' : 'No' %></li>
-      <li>Date: <%= concert.concert_date %></li>
+      <li><strong>Artist:</strong> <%= concert.artist.name %></li>
+      <li><strong>Venue:</strong> <%= concert.venue.name %></li>
+      <li><strong>Date:</strong> <%= concert.concert_date %></li>
     </ul>
+    <div>
+      <%= link_to "Show", concert %> |
+      <%= link_to "Edit", edit_concert_path(concert) %> |
+      <%= link_to "Destroy", concert, method: :delete,
+          data: { confirm: 'Are you sure?' } %>
+    </div>
     <hr/>
   <% end %>
 </ul>

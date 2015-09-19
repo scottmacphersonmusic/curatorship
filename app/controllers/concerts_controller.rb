@@ -4,6 +4,9 @@ class ConcertsController < ApplicationController
   end
 
   def show
+    @concert = Concert.find(params[:id])
+    @artist = @concert.artist
+    @venue = @concert.venue
   end
 
   def new
